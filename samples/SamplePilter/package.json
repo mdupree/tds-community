@@ -7,8 +7,8 @@
   "module": "index.es.js",
   "private": true,
   "dependencies": {
-    "@tds/core-box": "^1.0.1",
-    "@tds/core-text": "^1.0.2",
+    "@tds/core-box": "^2.0.0",
+    "@tds/core-text": "^3.0.0",
     "@tds/util-helpers": "^1.2.0",
     "prop-types": "^15.6.2"
   },
@@ -17,6 +17,6 @@
     "react-dom": ">=15"
   },
   "devDependencies": {
-    "@tds/core-colours": "^1.0.0"
+    "@tds/core-colours": "^2.0.0"
   }
 }
