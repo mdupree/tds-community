@@ -145,17 +145,17 @@ Modal.propTypes = {
   /**
    * Text that will appear at the top of the content section.
    */
-  heading: PropTypes.string,
+  heading: PropTypes.string.isRequired,
   /**
    *
    * Text that will appear in the middle of the content section.
    */
-  bodyText: PropTypes.string,
+  bodyText: PropTypes.string.isRequired,
   /**
    *
    * Text that represents confirm CTA.
    */
-  confirmCTAText: PropTypes.string,
+  confirmCTAText: PropTypes.string.isRequired,
   /**
    *
    * Text that represents cancel CTA or closing modal action.
@@ -184,9 +184,6 @@ Modal.propTypes = {
 }
 
 Modal.defaultProps = {
-  heading: '',
-  bodyText: '',
-  confirmCTAText: '',
   cancelCTAText: '',
   modalOpen: false,
   focusElementAfterClose: { current: null },
