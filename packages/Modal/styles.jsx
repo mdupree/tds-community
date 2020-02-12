@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { media } from '@tds/core-responsive'
-import { colorWhite } from '@tds/core-colours'
+import { colorWhite, colorAccessibleGreen } from '@tds/core-colours'
 
 export const FullScreenOverlay = styled.div(props => {
   if (props && props.modalOpen) {
@@ -54,7 +54,6 @@ export const CTAWrapper = styled.div(props => {
         flexFlow: 'row',
         '> button:first-child': {
           marginRight: '1rem',
-          marginTop: '2rem',
         },
       }),
     }
@@ -62,18 +61,44 @@ export const CTAWrapper = styled.div(props => {
   return {
     display: 'flex',
     flexFlow: 'column',
+    alignItems: 'baseline',
     '> button:first-child': {
       marginBottom: '1rem',
     },
     ...media.from('md').css({
       flexFlow: 'row',
-      marginTop: '2rem',
       '> button:first-child': {
         marginRight: '1rem',
         marginBottom: '0rem',
       },
     }),
   }
+})
+
+export const PaddingOverride = styled.div({
+  '> div:first-child': {
+    paddingBottom: '0rem',
+  },
+})
+
+export const OutlineButton = styled.button({
+  background: 'none',
+  border: 'none',
+  padding: '0rem',
+  width: '100%',
+  ...media.from('md').css({
+    width: '0%',
+  }),
+  '> button: first-child': {
+    color: colorAccessibleGreen,
+    background: colorWhite,
+    border: `1px solid ${colorAccessibleGreen}`,
+    outline: 'none',
+    ':hover': {
+      background: colorAccessibleGreen,
+      color: colorWhite,
+    },
+  },
 })
 
 export const CloseButtonWrapper = styled.div({
@@ -88,7 +113,12 @@ export const ModalWrapper = styled.div({
   display: 'flex',
   flexFlow: 'column',
   justifyContent: 'space-between',
-  padding: '3rem',
   overflow: 'scroll',
   height: '100%',
+  '> div:first-child': {
+    height: '100%',
+    display: 'flex',
+    flexFlow: 'column',
+    justifyContent: 'space-between',
+  },
 })

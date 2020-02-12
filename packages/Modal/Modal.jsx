@@ -12,6 +12,8 @@ import {
   CloseButtonWrapper,
   FullScreenOverlay,
   ModalWrapper,
+  PaddingOverride,
+  OutlineButton,
 } from './styles'
 
 const Modal = ({
@@ -105,23 +107,32 @@ const Modal = ({
                 <Close onClick={closingModal} ref={closeButton} a11yText="Close" />
               </CloseButtonWrapper>
             )}
+
             <ModalWrapper ref={modalRef}>
-              <Box between={3}>
-                <div ref={header} tabIndex="-1">
-                  <Heading level="h3">{heading}</Heading>
-                </div>
-                <Paragraph>{bodyText}</Paragraph>
+              <Box inset={5}>
+                <Box between={3}>
+                  <div ref={header} tabIndex="-1">
+                    <Heading level="h3" tag="div">
+                      {heading}
+                    </Heading>
+                  </div>
+                  <Paragraph>{bodyText}</Paragraph>
+                </Box>
+                <PaddingOverride>
+                  <Box vertical={5}>
+                    <CTAWrapper cancelCTAExists={cancelCTAText}>
+                      <Button ref={firstCTA} onClick={proceedModalHandler}>
+                        {confirmCTAText}
+                      </Button>
+                      {cancelCTAText && (
+                        <OutlineButton ref={closeButton} onClick={closingModal}>
+                          <Button>{cancelCTAText}</Button>
+                        </OutlineButton>
+                      )}
+                    </CTAWrapper>
+                  </Box>
+                </PaddingOverride>
               </Box>
-              <CTAWrapper cancelCTAExists={cancelCTAText}>
-                <Button ref={firstCTA} onClick={proceedModalHandler}>
-                  {confirmCTAText}
-                </Button>
-                {cancelCTAText && (
-                  <Button ref={closeButton} onClick={closingModal}>
-                    {cancelCTAText}
-                  </Button>
-                )}
-              </CTAWrapper>
             </ModalWrapper>
           </StyledModal>
         </FullScreenOverlay>
