@@ -38,7 +38,6 @@ export const StyledModal = styled.div({
     margin: '0 auto',
     maxWidth: '570px',
     height: 'auto',
-    minHeight: '330px',
     borderRadius: '0.25rem',
     boxShadow: '0 0 16px 0 rgba(0,0,0,0.2)',
     zIndex: '2000',
@@ -91,4 +90,5 @@ export const ModalWrapper = styled.div({
   justifyContent: 'space-between',
   padding: '3rem',
   overflow: 'scroll',
+  height: '100%',
 })
